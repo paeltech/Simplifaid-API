@@ -1,30 +1,49 @@
-#Simplifaid Modules
+# Simplifaid Modules
 
-##Users module
-User
-    id
-    name
-    email
-    password
-    user_type
+## Users module
+### User
+- id
+- name
+- email
+- password
+- user_type
 
-    ###Rel
-    Belongs to usertype
+    #### Rel
+    - Belongs to usertype
 
-User_types
-    admin
-    vendor
-    rider
+### User_types
+- admin
+- vendor
+- rider
 
-    ###Rel
-    Has many users
+    ### Rel
+    - Has many users
 
-##Products module
-Category
-    id
-    name
+## Products module
+### Category
+- id
+- name
 
-Vendor
-    id
-    name
-    user_id
+### Unit measures
+- id
+- name
+
+### Vendors
+- id
+- name
+- description
+- rating
+- user_id
+- is active
+
+    ### Rel
+    - Has many products
+    - Belongs to user
+
+### Products
+- id
+- name
+- description
+- stock
+- price
+- unit_measure
