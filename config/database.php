@@ -67,6 +67,7 @@ return [
         ],
         'pgsql' => [
             'driver' => 'pgsql',
+            'url' => $databaseUrl,
             'host' => $databaseUrl['
             ec2-54-246-89-234.eu-west-1.compute.amazonaws.com'],
             'port' => $databaseUrl['5432'],
