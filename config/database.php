@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str; 
 
-$DATABASE_URL=parse_url('postgres://grnpgzotlmlday:6f47b82b1951eb36d1eac10e785dd8c4de1140770d4bdfe73475bfbe5d756980@ec2-54-246-89-234.eu-west-1.compute.amazonaws.com:5432/d3felics3s2la5');
+$databaseUrl=parse_url('postgres://grnpgzotlmlday:6f47b82b1951eb36d1eac10e785dd8c4de1140770d4bdfe73475bfbe5d756980@ec2-54-246-89-234.eu-west-1.compute.amazonaws.com:5432/d3felics3s2la5');
 
 
 return [
@@ -65,21 +65,36 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-
         'pgsql' => [
             'driver' => 'pgsql',
-            'url' => $DATABASE_URL,
-            'host' => $DATABASE_URL["host"],
-            'port' => $DATABASE_URL["port"],
-            'database' => ltrim($DATABASE_URL["/path"], "/"),
-            'username' => $DATABASE_URL["user"],
-            'password' => $DATABASE_URL["pass"],
+            'host' => $databaseUrl['
+            ec2-54-246-89-234.eu-west-1.compute.amazonaws.com'],
+            'port' => $databaseUrl['5432'],
+            'database' => substr($databaseUrl['d3felics3s2la5'], 1),
+            'username' => $databaseUrl['grnpgzotlmlday'],
+            'password' => $databaseUrl['
+            6f47b82b1951eb36d1eac10e785dd8c4de1140770d4bdfe73475bfbe5d756980'],
             'charset' => 'utf8',
             'prefix' => '',
             'prefix_indexes' => true,
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
+
+        // 'pgsql' => [
+        //     'driver' => 'pgsql',
+        //     'url' => $DATABASE_URL,
+        //     'host' => $DATABASE_URL["host"],
+        //     'port' => $DATABASE_URL["port"],
+        //     'database' => ltrim($DATABASE_URL["/path"], "/"),
+        //     'username' => $DATABASE_URL["user"],
+        //     'password' => $DATABASE_URL["pass"],
+        //     'charset' => 'utf8',
+        //     'prefix' => '',
+        //     'prefix_indexes' => true,
+        //     'schema' => 'public',
+        //     'sslmode' => 'prefer',
+        // ],
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
